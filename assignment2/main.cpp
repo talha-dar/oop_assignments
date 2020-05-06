@@ -63,5 +63,7 @@ int main()
 	str8 = str5; //assigning str5 to str8
 	cout << "str8\n";
 	print(str8);
+
+	cout<<"\nwell shit...";
 	return 0;
 }
