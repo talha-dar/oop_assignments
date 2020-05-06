@@ -64,6 +64,5 @@ int main()
 	cout << "str8\n";
 	print(str8);
 
-	cout<<"\nwell shit...";
 	return 0;
 }
