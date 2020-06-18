@@ -11,18 +11,18 @@ private:
   //attributes
   
   //set by constructor
-  int doctors;
+  int doctorsCapacity;
   int doctorsCount;
   Doctor** doctorsRoster;
-  int patients;
+  int patientsCapacity;
   int patientsCount;
   Patient** patientsRoster;
-  int rooms;
+  int roomsAvailable;
   Room* roomsList;
   static int departmentsCount;//total count of departments in hospital
 public:
   //default parametrized constructor
-  Department(const int _doctors=0, const int _patients=0, const int _rooms=0);
+  Department(const int _doctorsCapacity=0, const int _patientsCapacity=0, const int _roomsAvailable=0);
   //destructor
   ~Department();
 

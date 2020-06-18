@@ -1,26 +1,26 @@
 #include"Department.h"
 
-Department::Department(const int _doctors, const int _patient, const int _rooms){
-  if(_doctors>0){
-    doctorsRoster=new Doctor*[_doctors]{nullptr};
-    doctors=_doctors;
+Department::Department(const int _doctorsCapacity, const int _patientsCapacity, const int _roomsAvailable){
+  if(_doctorsCapacity>0){
+    doctorsRoster=new Doctor*[_doctorsCapacity]{nullptr};
+    doctorsCapacity=_doctorsCapacity;
   }
   else{
-    doctors=0;
+    doctorsCapacity=0;
   }
-  if(_patient>0){
-    patientsRoster=new Patient*[_patient]{nullptr};
-    patients=_patient;
-  }
-  else{
-    patients=0;
-  }
-  if(_rooms>0){
-    roomsList=new Room[_rooms]{nullptr};
-    rooms=_rooms;
+  if(_patientsCapacity>0){
+    patientsRoster=new Patient*[_patientsCapacity]{nullptr};
+    patientsCapacity=_patientsCapacity;
   }
   else{
-    rooms=0;
+    patientsCapacity=0;
+  }
+  if(_roomsAvailable>0){
+    roomsList=new Room[_roomsAvailable]{nullptr};
+    roomsAvailable=_roomsAvailable;
+  }
+  else{
+    roomsAvailable=0;
   }
   doctorsCount=0;
   patientsCount=0;
@@ -28,7 +28,7 @@ Department::Department(const int _doctors, const int _patient, const int _rooms)
 
 Department::~Department(){
   if(doctorsRoster){
-    for(int i=0; i<doctors;i++){
+    for(int i=0; i<doctorsCapacity;i++){
       if(doctorsRoster[i]){
 	delete doctorsRoster[i];
 	doctorsRoster[i]=nullptr;
@@ -38,7 +38,7 @@ Department::~Department(){
     doctorsRoster=nullptr;
   }
   if(patientsRoster){
-    for(int i=0; i<patients;i++){
+    for(int i=0; i<patientsCapacity;i++){
       if(patientsRoster[i]){
 	delete patientsRoster[i];
 	patientsRoster[i]=nullptr;
@@ -54,7 +54,7 @@ Department::~Department(){
 }
 
 void Department::inductDoctor(Doctor* _doctorptr){
-  if(doctorsCount<doctors){
+  if(doctorsCount<doctorsCapacity){
     if(_doctorptr){
       doctorsRoster[doctorsCount]=_doctorptr;
       doctorsCount++;
@@ -63,7 +63,7 @@ void Department::inductDoctor(Doctor* _doctorptr){
 }
 
 void Department::admitPatient(Patient* _patientptr){
-  if(patientsCount<patients){
+  if(patientsCount<patientsCapacity){
     if(_patientptr){
       patientsRoster[patientsCount]=_patientptr;
       patientsCount++;

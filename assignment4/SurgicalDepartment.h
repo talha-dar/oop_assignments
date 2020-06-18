@@ -9,7 +9,7 @@ private:
 public:
 
   //default parametrized constructor
-  SurgicalDepartment(const int _opsCount=0);
+  SurgicalDepartment(const int _opsCount=0, const int _doctorsCapacity=0, const int _patientsCapacity=0);
 
   //destructor
   ~SurgicalDepartment();
