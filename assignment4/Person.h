@@ -16,13 +16,13 @@ class Person{
   //destructor
   ~Person();
   //setters
-  void set_name(const char* _name=nullptr);
-  void set_age(const int _age=0);
-  void set_sex(const char _sex='\0');
+  void setName(const char* _name=nullptr);
+  void setAge(const int _age=0);
+  void setSex(const char _sex='\0');
   //getters
-  char* get_name()const;
-  int get_age()const;
-  char get_sex()const;
+  char* getName()const;
+  int getAge()const;
+  char getSex()const;
   //misc
   void display()const;
 };

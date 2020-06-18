@@ -14,9 +14,9 @@ protected:
   Doctor(const char* _name=nullptr, const int _age=0, const char _sex='\0');
   ~Doctor();
   //getters
-  bool get_surgeonStatus()const;
-  static int get_doctorsCount();
-  static int get_surgeonCount();
+  bool getSurgeonStatus()const;
+  static int getDoctorsCount();
+  static int getSurgeonCount();
 };
 
 int Doctor::doctorsCount;

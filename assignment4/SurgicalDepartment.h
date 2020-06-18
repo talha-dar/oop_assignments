@@ -15,7 +15,10 @@ public:
   ~SurgicalDepartment();
 
   //setters and mutators
-  void occupyTheatre();
-  void freeTheatre();
-  
+  void occupyOperationTheatre(Doctor* _doctor=nullptr, Patient* _patient=nullptr);
+  void freeOperationTheatre(const int _count=0); //frees the i'th op in our ops*
+
+  //getters
+  int getOpsCount()const;
+  int getOpsOccupied()const;
 };

@@ -8,24 +8,26 @@ OperationTheatre::~OperationTheatre(){
   surgeon=nullptr;
 }
 
-void OperationTheatre::set_surgeon(Doctor* _surgeon){
+void OperationTheatre::setSurgeon(Doctor* _surgeon){
   if(_surgeon && _surgeon!=surgeon){
-    if(_surgeon->get_surgeonStatus()){
+    if(_surgeon->getSurgeonStatus()){
       surgeon=_surgeon;
     }
   }
-}
-
-void OperationTheatre::set_patient(Patient* _patient){
-  if(_patient){
-    this->set_occupant(_patient);
+  else{
+    surgeon=nullptr;
   }
 }
 
-Doctor OperationTheatre::get_surgeon()const{
+void OperationTheatre::setPatient(Patient* _patient){
+  //nullptr means theatre has no patient in it
+  this->setOccupant(_patient);
+}
+
+Doctor OperationTheatre::getSurgeon()const{
   return *surgeon;
 }
 
-Patient OperationTheatre::get_patient()const{
-  return this->get_occupant();
+Patient OperationTheatre::getPatient()const{
+  return this->getOccupant();
 }

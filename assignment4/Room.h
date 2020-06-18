@@ -11,8 +11,8 @@ public:
   ~Room();
 
   //setter
-  void set_occupant(Patient* _occupant=nullptr);
+  void setOccupant(Patient* _occupant=nullptr);
 
   //getters
-  Patient get_occupant()const;
+  Patient getOccupant()const;
 };

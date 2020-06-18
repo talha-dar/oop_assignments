@@ -11,9 +11,9 @@ public:
   OperationTheatre(Doctor* _surgeon=nullptr, Patient* _patient=nullptr);
   ~OperationTheatre();
   //setter
-  void set_surgeon(Doctor* _surgeon=nullptr);
-  void set_patient(Patient* _patient=nullptr);
+  void setSurgeon(Doctor* _surgeon=nullptr);
+  void setPatient(Patient* _patient=nullptr);
   //getter
-  Doctor get_surgeon()const;
-  Patient get_patient()const;
+  Doctor getSurgeon()const;
+  Patient getPatient()const;
 };

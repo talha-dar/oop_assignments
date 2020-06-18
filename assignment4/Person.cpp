@@ -41,7 +41,7 @@ Person::~Person(){
 
 // set_ters
 
-void Person::set_name(const char* _name){
+void Person::setName(const char* _name){
   if(_name){
     int l=strlen(_name);
     if(name){
@@ -53,7 +53,7 @@ void Person::set_name(const char* _name){
   }
 }
 
-void Person::set_age(const int _age){
+void Person::setAge(const int _age){
   if(_age>0){
     age=_age;
   }
@@ -62,7 +62,7 @@ void Person::set_age(const int _age){
   }
 }
 
-void Person::set_sex(const char _sex){
+void Person::setSex(const char _sex){
   if(_sex){
     sex=_sex;
   }
@@ -70,7 +70,7 @@ void Person::set_sex(const char _sex){
 
 // get_ters
 
-char* Person::get_name()const{
+char* Person::getName()const{
   char* temp=nullptr;
   if(name){
     int l=strlen(name);
@@ -80,11 +80,11 @@ char* Person::get_name()const{
   return temp;
 }
 
-int Person::get_age()const{
+int Person::getAge()const{
   return age;
 }
 
-char Person::get_sex()const{
+char Person::getSex()const{
   return sex;
 }
 

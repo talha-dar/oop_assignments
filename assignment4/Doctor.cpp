@@ -12,10 +12,10 @@ Doctor::~Doctor(){
 }
 
 //setters
-int Doctor::get_doctorsCount(){
+int Doctor::getDoctorsCount(){
   return doctorsCount;
 }
 
-int Doctor::get_surgeonCount(){
+int Doctor::getSurgeonCount(){
   return surgeonCount;
 }
