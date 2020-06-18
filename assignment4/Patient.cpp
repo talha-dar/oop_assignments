@@ -1,31 +1,22 @@
 #include"Patient.h"
 
 // default parametrized constructor
-Patient::Patient(const int _patientID,const char* _name, const int _age, const char _sex):Person(_name, _age, _sex){
-  cout<<"\nPatient constructor.";
-  if(_patientID>0){
-    patientID=_patientID;
-  }
-  else{
-    patientID=0;
-  }
+Patient::Patient(const char* _name, const int _age, const char _sex):Person(_name, _age, _sex){
   prescribedMedicines=nullptr;
-  surguryStatus=false;
+  surgeryStatus=false;
   roomOccupancyStatus=false;
+  patientCount++;
+  patientID=(patientCount+1)*patientCount;//just a formula to ensure patientIDs remain unique
 }
 
 // default parametrized constructor 2
-Patient::Patient(const int _patientID,const Person& _obj):Person(_obj){
+Patient::Patient(const Person& _obj):Person(_obj){
   cout<<"\nPatient constructor 2.";
-  if(_patientID>0){
-    patientID=_patientID;
-  }
-  else{
-    patientID=0;
-  }
   prescribedMedicines=nullptr;
-  surguryStatus=false;
+  surgeryStatus=false;
   roomOccupancyStatus=false;
+  patientCount++;
+  patientID=(patientCount+1)*patientCount;//just a formula to ensure patientIDs remain unique
 }
 
 
@@ -38,7 +29,7 @@ Patient::Patient(const Patient& obj):Person(obj){
     strcpy(prescribedMedicines, obj.prescribedMedicines);
   }
 
-  surguryStatus=obj.surguryStatus;
+  surgeryStatus=obj.surgeryStatus;
   roomOccupancyStatus=obj.roomOccupancyStatus;
   
 }
@@ -51,19 +42,32 @@ Patient::~Patient(){
   }
 }
 
-//setter
-void Patient::set_patientID(const int _patientID){
-  if(_patientID>0){
-    patientID=_patientID;
+//settters
+void Patient::setPrescribedMedicine(const char* _meds){
+  if(_meds){
+    if(prescribedMedicines){
+      delete[] prescribedMedicines;
+      prescribedMedicines=nullptr;
+    }
+    prescribedMedicines=new char[strlen(_meds)+1]{'\0'};
+    strcpy(prescribedMedicines, _meds);
   }
 }
 
+void Patient::setRoomOccupancyStatus(const bool _status){
+  roomOccupancyStatus=_status;
+}
+
+void Patient::setSurgeryStaus(const bool _status){
+  surgeryStatus=_status;
+}
+
 //getter
-int Patient::get_patientID()const{
+int Patient::getPatientID()const{
   return patientID;
 }
 
-char* Patient::get_prescribedMedicines()const{
+char* Patient::getPrescribedMedicines()const{
   char* temp=nullptr;
   if(prescribedMedicines){
     temp=new char[strlen(prescribedMedicines)+1]{'\0'};
@@ -71,23 +75,22 @@ char* Patient::get_prescribedMedicines()const{
   return temp;
 }
 
-bool Patient::get_surguryStatus()const{
-  return surguryStatus;
+bool Patient::getSurgeryStatus()const{
+  return surgeryStatus;
 }
 
 //display
 void Patient::display()const{
   Person::display();
   cout<<"\nPatient ID: "<<patientID;
-  if(surguryStatus){
+  if(surgeryStatus){
     cout<<"\nPrescribed Medicines: "<<prescribedMedicines;
   }
-  cout<<"\nSurgury Status: ";
-  if(surguryStatus){
+  cout<<"\nSurgery Status: ";
+  if(surgeryStatus){
     cout<<"Due.";
   }
   else{
     cout<<"Nothing scheduled.";
   }
 }
-

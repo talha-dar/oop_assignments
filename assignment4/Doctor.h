@@ -4,16 +4,15 @@
 #include"Person.h"
 using namespace std;
 
-class Doctor:Person{
+class Doctor:public Person{
  private:
-  bool surgeonStatus;
   static int doctorsCount;
   static int surgeonCount;
+protected:
+  bool surgeonStatus;//accessably by departments only
  public:
-  Doctor(const bool _surgeonStatus=false, const char* _name=nullptr, const int _age=0, const char _sex='\0');
+  Doctor(const char* _name=nullptr, const int _age=0, const char _sex='\0');
   ~Doctor();
-  //setters
-  void set_surgeonStatus(const bool _surgeonStatus=false);
   //getters
   bool get_surgeonStatus()const;
   static int get_doctorsCount();

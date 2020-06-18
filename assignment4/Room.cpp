@@ -20,12 +20,9 @@ void Room::set_occupant(Patient* _occupant){
   if(_occupant){
     occupant=_occupant;
   }
-  else{
-    occupant=nullptr;
-  }
 }
 
 //getters
-Patient* Room::get_occupant()const{
-  return occupant;
+Patient Room::get_occupant()const{
+  return *occupant;
 }

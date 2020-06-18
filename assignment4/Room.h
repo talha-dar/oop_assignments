@@ -9,8 +9,10 @@ private:
 public:
   Room(Patient* _occupant=nullptr);
   ~Room();
+
   //setter
   void set_occupant(Patient* _occupant=nullptr);
+
   //getters
-  Patient* get_occupant()const;
+  Patient get_occupant()const;
 };

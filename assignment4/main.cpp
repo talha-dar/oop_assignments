@@ -10,7 +10,6 @@
 using namespace std;
 
 int main(){
-
-  Person me("talha", 21, 'd');
+  
   return 0;
 }
