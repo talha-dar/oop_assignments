@@ -12,10 +12,19 @@ Doctor::~Doctor(){
 }
 
 //setters
+void Doctor::setSurgeonStatus(const bool _status){
+  surgeonStatus=_status;
+}
+
+//getters
 int Doctor::getDoctorsCount(){
   return doctorsCount;
 }
 
 int Doctor::getSurgeonCount(){
   return surgeonCount;
+}
+
+bool Doctor::getSurgeonStatus()const{
+  return surgeonStatus;
 }

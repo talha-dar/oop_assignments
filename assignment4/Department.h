@@ -29,6 +29,8 @@ public:
   //setters and mutators
   void inductDoctor(Doctor* _doctorptr=nullptr);//add a preexisting doctor to current roster
   void admitPatient(Patient* _patientptr=nullptr);//adds either a pre-existing patient, or creates a new one from given attributes.
+  //getters
+  Patient* getPatientZero()const;//needed for MedicalDepartment class
 };
 
 int Department::departmentsCount;

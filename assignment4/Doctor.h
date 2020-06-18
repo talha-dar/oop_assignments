@@ -8,11 +8,13 @@ class Doctor:public Person{
  private:
   static int doctorsCount;
   static int surgeonCount;
-protected:
   bool surgeonStatus;//accessably by departments only
  public:
   Doctor(const char* _name=nullptr, const int _age=0, const char _sex='\0');
   ~Doctor();
+  //setters
+  void setSurgeonStatus(const bool _status=false);
+  
   //getters
   bool getSurgeonStatus()const;
   static int getDoctorsCount();

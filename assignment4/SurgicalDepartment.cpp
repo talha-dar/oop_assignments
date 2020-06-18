@@ -29,6 +29,12 @@ void SurgicalDepartment::freeOperationTheatre(const int _count){
   }
 }
 
+void SurgicalDepartment::inductSurgeon(Doctor* _surgeon){
+  if(_surgeon->getSurgeonStatus()){
+    Department::inductDoctor(_surgeon);
+  }
+}
+
 int SurgicalDepartment::getOpsCount()const{
   return opsOccupied;
 }

@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include"Department.h"
 #include"OperationTheatre.h"
@@ -17,7 +18,7 @@ public:
   //setters and mutators
   void occupyOperationTheatre(Doctor* _doctor=nullptr, Patient* _patient=nullptr);
   void freeOperationTheatre(const int _count=0); //frees the i'th op in our ops*
-
+  void inductSurgeon(Doctor* _surgeon=nullptr);
   //getters
   int getOpsCount()const;
   int getOpsOccupied()const;

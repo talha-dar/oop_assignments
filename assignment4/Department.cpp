@@ -53,6 +53,7 @@ Department::~Department(){
   }
 }
 
+//setters
 void Department::inductDoctor(Doctor* _doctorptr){
   if(doctorsCount<doctorsCapacity){
     if(_doctorptr){
@@ -68,5 +69,15 @@ void Department::admitPatient(Patient* _patientptr){
       patientsRoster[patientsCount]=_patientptr;
       patientsCount++;
     }
+  }
+}
+
+//getters
+Patient* Department::getPatientZero()const{
+  if(patientsRoster[0]){
+    return patientsRoster[0];
+  }
+  else{
+    return nullptr;
   }
 }
