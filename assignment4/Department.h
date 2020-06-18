@@ -31,6 +31,14 @@ public:
   void admitPatient(Patient* _patientptr=nullptr);//adds either a pre-existing patient, or creates a new one from given attributes.
   //getters
   Patient* getPatientZero()const;//needed for MedicalDepartment class
+  Patient* getPatientFromRoster(const int _index=0)const;
+  Doctor* getDoctorFromRoster(const int _index=0)const;
+  Room* getRoomFromList(const int _index=0)const;
+
+  //misc
+  void displayDoctorFromRoster(const int _index=0)const;
+  void displayPatientFromRoster(const int _index=0)const;
+  
 };
 
 int Department::departmentsCount;

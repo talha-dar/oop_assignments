@@ -19,6 +19,7 @@ public:
   void occupyOperationTheatre(Doctor* _doctor=nullptr, Patient* _patient=nullptr);
   void freeOperationTheatre(const int _count=0); //frees the i'th op in our ops*
   void inductSurgeon(Doctor* _surgeon=nullptr);
+  void schedulePatientForSurgery(const int _patientID=0);
   //getters
   int getOpsCount()const;
   int getOpsOccupied()const;

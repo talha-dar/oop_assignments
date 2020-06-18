@@ -20,8 +20,10 @@ public:
   //destructor
   ~MedicalDepartment();
   
-  //setters - mutators  
+  //setters - mutators
+  void setCurrentPatient(Patient* _currentPatient=nullptr);
   void updateCurrentPatient();// this will set currentPatient to patient in Department
   void setPatientInQueue(Patient* _nextPatient=nullptr);
   void prescribeMedicine(const char* _meds=nullptr);
+  void displayCurrentPatient()const;
 };

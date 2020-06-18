@@ -28,3 +28,15 @@ int Doctor::getSurgeonCount(){
 bool Doctor::getSurgeonStatus()const{
   return surgeonStatus;
 }
+
+//display
+void Doctor::display()const{
+  Person::display();
+  cout<<"\nSurgeon: ";
+  if(surgeonStatus){
+    cout<<"Yes.";
+  }
+  else{
+    cout<<"No.";
+  }
+}

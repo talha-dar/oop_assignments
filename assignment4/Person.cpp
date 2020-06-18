@@ -2,7 +2,6 @@
 
 // constructor
 Person::Person(const char* _name, const int _age, const char _sex){
-  cout<<"\nPerson def param constructor. ";
   if(_name && _age>0 && _sex){
     //get_ length of _name, then create suitable memory on this->name and copy _name to it.
     int l=strlen(_name);
@@ -32,7 +31,6 @@ Person::Person(const Person& obj){
 
 // destructor
 Person::~Person(){
-  cout<<"\nPerson destructor.";
   if(name){
     delete name;
     name=nullptr;

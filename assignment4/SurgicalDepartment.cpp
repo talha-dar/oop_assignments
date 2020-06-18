@@ -10,7 +10,15 @@ SurgicalDepartment::SurgicalDepartment(const int _opsCount, const int _doctorsCa
   }
 }
 
+SurgicalDepartment::~SurgicalDepartment(){
+  if(ops){
+    delete[] ops;
+    ops=nullptr;
+  }
+}
+
 void SurgicalDepartment::occupyOperationTheatre(Doctor* _doctor, Patient* _patient){
+  //doctor must be a surgeon to occupy an operationTheatre
   if(_doctor && _doctor->getSurgeonStatus() && _patient){
     if(opsOccupied<opsCount){
       ops[opsOccupied].setPatient(_patient);
@@ -33,6 +41,11 @@ void SurgicalDepartment::inductSurgeon(Doctor* _surgeon){
   if(_surgeon->getSurgeonStatus()){
     Department::inductDoctor(_surgeon);
   }
+}
+
+void SurgicalDepartment::schedulePatientForSurgery(const int _patientID){
+  Patient* temp=getPatientFromRoster(_patientID);
+  temp->setSurgeryStaus(true);
 }
 
 int SurgicalDepartment::getOpsCount()const{

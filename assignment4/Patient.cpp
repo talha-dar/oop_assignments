@@ -5,13 +5,12 @@ Patient::Patient(const char* _name, const int _age, const char _sex):Person(_nam
   prescribedMedicines=nullptr;
   surgeryStatus=false;
   roomOccupancyStatus=false;
+  patientID=patientCount;
   patientCount++;
-  patientID=(patientCount+1)*patientCount;//just a formula to ensure patientIDs remain unique
 }
 
 // default parametrized constructor 2
 Patient::Patient(const Person& _obj):Person(_obj){
-  cout<<"\nPatient constructor 2.";
   prescribedMedicines=nullptr;
   surgeryStatus=false;
   roomOccupancyStatus=false;
@@ -40,6 +39,7 @@ Patient::~Patient(){
     delete[] prescribedMedicines;
     prescribedMedicines=nullptr;
   }
+  patientCount--;
 }
 
 //settters
@@ -71,6 +71,7 @@ char* Patient::getPrescribedMedicines()const{
   char* temp=nullptr;
   if(prescribedMedicines){
     temp=new char[strlen(prescribedMedicines)+1]{'\0'};
+    strcpy(temp, prescribedMedicines);
   }
   return temp;
 }
@@ -83,7 +84,7 @@ bool Patient::getSurgeryStatus()const{
 void Patient::display()const{
   Person::display();
   cout<<"\nPatient ID: "<<patientID;
-  if(surgeryStatus){
+  if(prescribedMedicines){
     cout<<"\nPrescribed Medicines: "<<prescribedMedicines;
   }
   cout<<"\nSurgery Status: ";

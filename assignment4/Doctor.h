@@ -19,6 +19,9 @@ class Doctor:public Person{
   bool getSurgeonStatus()const;
   static int getDoctorsCount();
   static int getSurgeonCount();
+
+  //display
+  void display()const;
 };
 
 int Doctor::doctorsCount;

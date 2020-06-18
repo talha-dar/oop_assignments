@@ -2,25 +2,28 @@
 
 Department::Department(const int _doctorsCapacity, const int _patientsCapacity, const int _roomsAvailable){
   if(_doctorsCapacity>0){
-    doctorsRoster=new Doctor*[_doctorsCapacity]{nullptr};
+    doctorsRoster=new Doctor*[_doctorsCapacity];
     doctorsCapacity=_doctorsCapacity;
   }
   else{
     doctorsCapacity=0;
+    doctorsRoster=nullptr;
   }
   if(_patientsCapacity>0){
-    patientsRoster=new Patient*[_patientsCapacity]{nullptr};
+    patientsRoster=new Patient*[_patientsCapacity];
     patientsCapacity=_patientsCapacity;
   }
   else{
     patientsCapacity=0;
+    doctorsRoster=nullptr;
   }
   if(_roomsAvailable>0){
-    roomsList=new Room[_roomsAvailable]{nullptr};
+    roomsList=new Room[_roomsAvailable];
     roomsAvailable=_roomsAvailable;
   }
   else{
     roomsAvailable=0;
+    roomsList=nullptr;
   }
   doctorsCount=0;
   patientsCount=0;
@@ -28,22 +31,10 @@ Department::Department(const int _doctorsCapacity, const int _patientsCapacity, 
 
 Department::~Department(){
   if(doctorsRoster){
-    for(int i=0; i<doctorsCapacity;i++){
-      if(doctorsRoster[i]){
-	delete doctorsRoster[i];
-	doctorsRoster[i]=nullptr;
-      }
-    }
     delete[] doctorsRoster;
     doctorsRoster=nullptr;
   }
   if(patientsRoster){
-    for(int i=0; i<patientsCapacity;i++){
-      if(patientsRoster[i]){
-	delete patientsRoster[i];
-	patientsRoster[i]=nullptr;
-      }
-    }
     delete[] patientsRoster;
     patientsRoster=nullptr;
   }
@@ -79,5 +70,50 @@ Patient* Department::getPatientZero()const{
   }
   else{
     return nullptr;
+  }
+}
+
+Patient* Department::getPatientFromRoster(const int _index)const{
+  if(_index>0 && _index<=patientsCount){
+    if(patientsRoster[_index-1]){
+      return patientsRoster[_index-1];
+    }
+  }
+  return nullptr;
+}
+
+Doctor* Department::getDoctorFromRoster(const int _index)const{
+  if(_index>0 && _index<=doctorsCount){
+    if(doctorsRoster[_index-1]){
+      return doctorsRoster[_index-1];
+    }
+  }
+  return nullptr;
+}
+
+Room* Department::getRoomFromList(const int _index)const{
+  if(_index>0 && _index<=roomsAvailable){
+    return &roomsList[_index-1];
+  }
+  return nullptr;
+}
+
+void Department::displayDoctorFromRoster(const int _index)const{
+  Doctor* temp=getDoctorFromRoster(_index);
+  if(temp){
+    temp->display();
+  }
+  else{
+    cout<<"\nTarget doctor not found.";
+  }
+}
+
+void Department::displayPatientFromRoster(const int _index)const{
+  Patient* temp=getPatientFromRoster(_index);
+  if(temp){
+    temp->display();
+  }
+  else{
+    cout<<"\nTarget patient not found.";
   }
 }
