@@ -1,0 +1,3 @@
+/home/talha/oop_assignments/assignment4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/talha/oop_assignments/assignment4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/talha/oop_assignments/assignment4/cmake-build-debug/CMakeFiles/assignment4.dir

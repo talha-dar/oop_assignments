@@ -27,7 +27,6 @@ int main(){
   // medical department was constructor with just one doctor.
   Hospital one;
 
-
   //testing SurgicalDepartment
 
   //declare some patients and doctors
